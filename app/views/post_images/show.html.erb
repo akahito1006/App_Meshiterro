@@ -31,7 +31,7 @@
 <% @post_image.post_comments.each do |post_comment| %>
   <p><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
   <!--post_imagesフォルダのshow.html.erbファイルでは、画像を保持しているのはpost_commentモデルに紐づけられたuserモデルです。-->
-  <!--このため、attachment_image_tagの右隣には、post_comment.userを記述します-->
+  <!--このため、attachment_image_tagの右隣には、post_comment.userを記述します。-->
   <%= post_comment.user.name %>
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
   
@@ -50,3 +50,4 @@
   <!--コメントは、post_imageに結びついたpost_commentにあるため、2つ用意する必要があります。また、post_commentをcreateするためのリクエストは、ルーティングもネスト（親子関係）しているため、上記2つの情報が必要になります。-->
 <% end %>
 </div>
+
