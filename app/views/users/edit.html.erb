@@ -1,0 +1,16 @@
+<h2>プロフィール編集</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <label for ="inputName">Name</label>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class:"example_hoge", fallback: "no_image.jpg" %>
+  <!--refile特有の記述ルール-->
+  <!--%= attachment_image_tag 保存先インスタンス名, :保存先カラム名, :サイズ（横幅,高さ）, 画像拡張子, 代替画像 %-->
+  <!--実際のカラムは「profile_image_id」ですが、_idを外したカラム名（profile_image）で指定します（refileの仕様）。-->
+  <!--:fillで表示されない場合は、size:で指定してください。-->
+  <!--この際、×（かける）ではなく、x（小文字のエックス）になりますので注意しましょう-->
+  
+  
+  <label for="inputImage">ProfileImage</label>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  <%= f.submit "変更を保存" %>
+<% end %>
